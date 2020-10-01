@@ -47,6 +47,13 @@ contract('FundraisingDapp',([deployer, beneficiary, donor]) => {
         assert.equal(event.fundingGoal, '10000000000000000000','Funding Goal is correct')
         assert.equal(event.raisedFunds, '0','Raised funds is correct')
         assert.equal(event.completed, false,'id is correct')
+
+        // FAILURE
+         await await fundraisingDapp.createCampaign('','For students from 1st to 12th Std','Education',web3.utils.toWei('10','Ether'), {from: beneficiary}).should.be.rejected;
+         await await fundraisingDapp.createCampaign('Student Care','','Education',web3.utils.toWei('10','Ether'), {from: beneficiary}).should.be.rejected;
+         await await fundraisingDapp.createCampaign('Student Care','For students from 1st to 12th Std','Education',0, {from: beneficiary}).should.be.rejected;
+         await await fundraisingDapp.createCampaign('','',web3.utils.toWei('10','Ether'), {from: beneficiary}).should.be.rejected;
+        
       })
   })
 
