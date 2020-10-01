@@ -55,6 +55,61 @@ contract('FundraisingDapp',([deployer, beneficiary, donor]) => {
          await await fundraisingDapp.createCampaign('','',web3.utils.toWei('10','Ether'), {from: beneficiary}).should.be.rejected;
         
       })
+
+      it('lists campaigns', async () => {
+        const product = await fundraisingDapp.campaigns(campaignCount)
+        assert.equal(product.id.toNumber(), campaignCount.toNumber(),'id is correct')
+        assert.equal(product.recipient, beneficiary ,'address is correct')
+        assert.equal(product.name, 'Student Care','Name is correct')
+        assert.equal(product.description, 'For students from 1st to 12th Std','Description is correct')
+        assert.equal(product.cause, 'Education','Cause is correct')
+        assert.equal(product.fundingGoal, '10000000000000000000','Funding Goal is correct')
+        assert.equal(product.raisedFunds, '0','Raised funds is correct')
+        assert.equal(product.completed, false,'status is correct')
+      })
+
+      it('donate to campaign', async() => {
+        //tracking the beneficiery balance
+        let oldBeneficiaryBalance
+        oldBeneficiaryBalance = await web3.eth.getBalance(beneficiary)
+        oldBeneficiaryBalance = new web3.utils.BN(oldBeneficiaryBalance)
+
+        //SUCCESS
+        result = await fundraisingDapp.donate(campaignCount, {from: donor, value: web3.utils.toWei('10','Ether')})
+
+        //checks log
+        // console.log(result.logs)
+        const event = result.logs[0].args
+        assert.equal(event.id.toNumber(), campaignCount.toNumber(),'id is correct')
+        assert.equal(event.recipient, beneficiary ,'recipient address is correct')
+        assert.equal(event.donor, donor ,'donor address is correct')
+        assert.equal(event.name, 'Student Care','Name is correct')
+        assert.equal(event.description, 'For students from 1st to 12th Std','Description is correct')
+        assert.equal(event.cause, 'Education','Cause is correct')
+        assert.equal(event.fundingGoal, '10000000000000000000','Funding Goal is correct')
+        assert.equal(event.raisedFunds, '10000000000000000000','Raised funds is correct')
+        assert.equal(event.completed, true,'status is correct')
+
+        //checking whether funds are recieved
+        let newBeneficiaryBalance
+        newBeneficiaryBalance = await web3.eth.getBalance(beneficiary)
+        newBeneficiaryBalance = new web3.utils.BN(newBeneficiaryBalance)
+
+        let amount
+        amount = web3.utils.toWei('10','Ether')
+        amount = new web3.utils.BN(amount)
+        // console.log(oldBeneficiaryBalance,newBeneficiaryBalance,amount)
+        const expectedBalance = oldBeneficiaryBalance.add(amount)
+        assert.equal(newBeneficiaryBalance.toString(),expectedBalance.toString())
+
+
+        //FAILURE
+        await fundraisingDapp.donate(999999, {from: donor, value: web3.utils.toWei('10','Ether')}).should.be.rejected
+        await fundraisingDapp.donate(campaignCount, {from: donor, value: web3.utils.toWei('5','Ether')}).should.be.rejected
+        await fundraisingDapp.donate(campaignCount, {from: deployer, value: web3.utils.toWei('10','Ether')}).should.be.rejected
+        await fundraisingDapp.donate(campaignCount, {from: donor, value: web3.utils.toWei('10','Ether')}).should.be.rejected
+      })
+
   })
 
 })
