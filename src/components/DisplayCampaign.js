@@ -2,6 +2,8 @@ import React, {Component } from 'react';
 import './App.css';
 
 class DisplayCampaign extends Component {
+
+
     render(){
         return(
             <div id='content'>
@@ -20,7 +22,7 @@ class DisplayCampaign extends Component {
                         </tr>
                     </thead>
                     <tbody id="campaignList">
-                        <tr>
+                        {/* <tr>
                             <th scope="row" className="cell">1</th>
                             <td className="cell">Project Funding</td>
                             <td className="cell">For Building freelancing projects</td>
@@ -29,31 +31,38 @@ class DisplayCampaign extends Component {
                             <td className="cell">0x39C7BC5496f4eaaa1fF75d88E079C22f0519E7b9</td>
                             <td className="cell">0x0000000000000000000000000000000000000000</td>
                             <td className="cell"><button className='donateButton'>Donate</button></td>
-                        </tr>
-{/*                         
-                         {this.props.products.map((product,key) => {
+                        </tr> */}
+                        
+                         { this.props.campaigns.map(( campaign, key) => {
                              return(
-                                 <tr key={key}>
-                                     <th scope="row">{product.id.toString()}</th>
-                                     <td>product.name</td>
-                                     <td>{window.web3.utils.fromWei(product.price.toString(),'Ether')}</td>
-                                    <td>{product.owner}</td>
-                                    <td>
-                                        { !product.purchased
-                                        ? <button
-                                            name={product.id}
-                                            value={product.price}
-                                            onClick={(event)=>{
-                                                this.props.purchaseProduct(event.target.name, event.target.value)
-                                            }}
-                                            >Buy
+                                <tr key = {key}>
+                                    <th scope="row" className="cell">{ campaign.id.toString()}</th>
+                                    <td className="cell">{campaign.name}</td>
+                                    <td className="cell">{campaign.description}</td>
+                                    <td className="cell">{campaign.cause}</td>
+                                    <td className="cell">{window.web3.utils.fromWei(campaign.fundingGoal.toString(),'Ether')}</td>
+                                    <td className="cell">{campaign.recipient}</td>
+                                    <td className="cell">{campaign.donor}</td>
+                                    <td className="cell">
+                                        {
+                                            !campaign.completed
+                                            ? <button 
+                                                id = {campaign.id }
+                                                amount = {campaign.fundingGoal}
+                                                className='donateButton' 
+                                                onClick={(event) => {
+                                                    this.props.donate(event.target.id, event.target.amount)
+            
+                                                } } 
+                                                >
+                                                    Donate
                                             </button>
-                                            :null
+                                            : null
                                         }
                                     </td>
-                                 </tr>
+                                </tr>
                              )
-                         })} */}
+                         })}
                     </tbody>
                 </table>
             </div>

@@ -1,4 +1,4 @@
-pragma solidity ^0.6.0;
+pragma solidity 0.6.0;
 
 contract FundraisingDapp {
     // string public contractName;
@@ -11,6 +11,7 @@ contract FundraisingDapp {
     struct Campaign {
         uint256 id;
         address payable recipient;                      //address where amount would get transfered
+        address donor;
         string name;
         string description;
         string cause;
@@ -32,11 +33,11 @@ contract FundraisingDapp {
     function createCampaign(string memory _name, string memory _description, string memory _cause, uint256 _fundingGoal) public  {
         require(bytes(_name).length > 0);
         require(bytes(_description).length > 0);
-        // require(_fundingGoal>0);
+        require(_fundingGoal>0);
 
         campaignCount++;
         
-        campaigns[campaignCount] = Campaign(campaignCount, msg.sender, _name,_description,_cause, _fundingGoal, 0, false);
+        campaigns[campaignCount] = Campaign(campaignCount, msg.sender, address(0), _name,_description,_cause, _fundingGoal, 0, false);
         
         // cam.proposalHash = sha256(abi.encodePacked(msg.sender, _description, _cause, _endTime));
         
@@ -56,9 +57,8 @@ contract FundraisingDapp {
         
         _campaign.recipient.transfer(msg.value);
         _campaign.raisedFunds = msg.value;
+        _campaign.donor = msg.sender;
         _campaign.completed = true;
-
-        campaigns[_id] = _campaign;
         // cam.raisedFunds += msg.value;         //amount would be added to the proposal funds
         // emit Donated(_proposalAddress, msg.sender, msg.value);
         // if(cam.raisedFunds >= cam.fundingGoal || cam.endTime <= currentTime)
@@ -66,7 +66,7 @@ contract FundraisingDapp {
             emit ProposalEnded(_id, _campaign.recipient, msg.sender, _campaign.name,_campaign.description,_campaign.cause, _campaign.fundingGoal, msg.value, true);
         // }
 
-        
+        campaigns[_id] = _campaign;
         // emit TotalRaisedFunds(charityPoolDonations);
     }
 
