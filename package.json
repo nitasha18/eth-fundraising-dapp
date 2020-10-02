@@ -16,7 +16,7 @@
     "react-bootstrap": "^1.3.0",
     "react-dom": "16.8.4",
     "react-scripts": "2.1.3",
-    "truffle": "^5.1.46",
+    "truffle": "^5.1.47",
     "web3": "1.0.0-beta.55"
   },
   "scripts": {

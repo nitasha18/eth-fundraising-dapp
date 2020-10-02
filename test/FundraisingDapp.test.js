@@ -21,10 +21,10 @@ contract('FundraisingDapp',([deployer, beneficiary, donor]) => {
           assert.notEqual(address, undefined)
         })
     
-        it('has a contractName', async () => {
-          const contractName = await fundraisingDapp.contractName()
-          assert.equal(contractName, 'Fundraising Dapp')
-        })
+        // it('has a contractName', async () => {
+        //   const contractName = await fundraisingDapp.contractName()
+        //   assert.equal(contractName, 'Fundraising Dapp')
+        // })
     })
     
     describe('campaigns', async () => {
