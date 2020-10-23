@@ -1,5 +1,6 @@
 import React, {Component } from 'react';
 import './App.css';
+import {Button} from "antd";
 
 class DisplayCampaign extends Component {
 
@@ -46,17 +47,18 @@ class DisplayCampaign extends Component {
                                     <td className="cell">
                                         {
                                             !campaign.completed
-                                            ? <button 
-                                                id = {campaign.id }
-                                                amount = {campaign.fundingGoal}
-                                                className='donateButton' 
-                                                onClick={(event) => {
-                                                    this.props.donate(event.target.id, event.target.amount)
-            
-                                                } } 
+                                                ? <Button
+                                                    type={"primary"}
+                                                    id={campaign.id}
+                                                    amount={campaign.fundingGoal}
+                                                    className='donateButton'
+                                                    onClick={(event) => {
+                                                        this.props.donate(event.target.id, event.target.amount)
+
+                                                    }}
                                                 >
                                                     Donate
-                                            </button>
+                                                </Button>
                                             : null
                                         }
                                     </td>

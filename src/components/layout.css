@@ -1,0 +1,26 @@
+
+#components-layout-demo-side .logo {
+    height: 32px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 16px;
+}
+
+.site-layout .site-layout-background {
+    background: #fff;
+}
+
+.contact-card {
+    height: 560px;
+    width: 350px;
+    margin-left: 116%;
+    margin-top: -620px;
+    border-radius: 5px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, .1);;
+}
+
+.stats-card {
+
+    height: 300px;
+    margin-left: 3%;
+    margin-top: -160px;
+}
