@@ -94,7 +94,7 @@ class StaticLayout extends Component {
                             }}
 
                         />
-                        <Card className={'contact-card'} title="Contact Us">
+                        <Card className={'contact-card'} title="Contact Us" style={{textAlign: "center"}}>
                             <br/>
                             <p><h3>We know you are in urgent need of funds.</h3></p>
                             <p>Raising funds was never this easy.</p>

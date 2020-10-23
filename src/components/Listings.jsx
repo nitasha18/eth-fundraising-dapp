@@ -15,7 +15,7 @@ import {Input} from 'antd';
 
 const antIcon = <LoadingOutlined style={{fontSize: 24}} spin/>;
 
-class Fillform extends Component {
+class Listings extends Component {
     async componentWillMount() {
         document.title = "Fundraiser"
         await this.loadWeb3()
@@ -110,14 +110,14 @@ class Fillform extends Component {
         return (
             <div>
 
-            <div className="container-fluid mt-5">
+                <div className="container-fluid mt-5">
                     <div className="row">
                         <main role="main" className="col-lg-12 d-flex text-center">
                             <div className='col'>
                                 {this.state.loading
-                                    ? <div id="loader" className="text-center"><p className="text-center"><Spin
-                                        indicator={antIcon}/></p></div>
-                                    : <NewCampaign createCampaign={this.createCampaign}/>
+                                    ? <div id="loader" className="text-center"><p className="text-center"></p></div>
+                                    : <DisplayCampaign campaigns={this.state.campaigns}
+                                                       donate={this.donate}/>
                                 }
                             </div>
                         </main>
@@ -129,4 +129,4 @@ class Fillform extends Component {
     }
 }
 
-export default Fillform;
+export default Listings;

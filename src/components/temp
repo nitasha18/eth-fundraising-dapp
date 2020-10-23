@@ -1,7 +1,4 @@
-ref={(input) => { this.campaignName = input }}
- ref={(input) => { this.campaignDescription = input }}
- ref={(input) => { this.campaignCause = input }}
-  ref={(input) => { this.campaignFundingGoal = input }}
+
 
 
 
