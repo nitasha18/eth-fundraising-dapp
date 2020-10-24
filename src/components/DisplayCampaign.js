@@ -8,17 +8,17 @@ class DisplayCampaign extends Component {
     render(){
         return(
             <div id='content'>
-                <h1>All Campaigns</h1>
+                <h1 style={{textAlign: "center", marginTop: 10}}>All Campaigns</h1>
                 <table className='table'>
                     <thead>
-                        <tr >
-                            <th scope='col' className="cell">Sr no.</th>
-                            <th scope='col' className="cell">Name</th>
-                            <th scope='col' className="cell">Description</th>
-                            <th scope='col' className="cell">Cause</th>
-                            <th scope='col' className="cell">Funding Goal</th>
-                            <th scope='col' className="cell">Campaign Holder</th>
-                            <th scope='col' className="cell">Recent Donor</th>
+                    <tr>
+                        <th scope='col' className="cell">Sr no.</th>
+                        <th scope='col' className="cell">Name</th>
+                        <th scope='col' className="cell">Description</th>
+                        <th scope='col' className="cell">Cause</th>
+                        <th scope='col' className="cell">Funding Goal</th>
+                        <th scope='col' className="cell">Campaign Holder</th>
+                        <th scope='col' className="cell">Recent Donor</th>
                             <th scope='col' className="cell"></th>
                         </tr>
                     </thead>

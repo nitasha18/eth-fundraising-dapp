@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import './App.css';
 import {Form, Input, Button, Card, InputNumber} from 'antd';
 import {UserOutlined} from '@ant-design/icons';
-
 const {TextArea} = Input;
 const layout = {
     labelCol: {
@@ -18,7 +17,7 @@ class NewCampaign extends Component {
 
     render() {
         return (
-            <Card id="content" className="card">
+            <Card style={{marginTop: "10%"}} id="content" className="card">
                 <p></p>
 
                 <p></p>
@@ -151,8 +150,6 @@ class NewCampaign extends Component {
                 <button type="submit" className="btn btn-primary">Create</button>
                 </label>
                 </form>
-
-
             </Card>
         );
     }
