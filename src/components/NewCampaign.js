@@ -107,7 +107,7 @@ class NewCampaign extends Component {
 
                 console.log(name, description, cause, fundingGoal)
                 this.props.createCampaign(name, description, cause, fundingGoal)
-                window.location.reload();
+                // window.location.reload();
             }}>
                 <label>
                     <div className="form-group">

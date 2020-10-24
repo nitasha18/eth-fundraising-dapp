@@ -24,9 +24,6 @@ class Navbar extends Component {
         await this.loadBlockchainData()
     }
 
-    refreshPage() {
-        window.location.reload(false)
-    }
 
     async loadWeb3() {
         if(window.ethereum){
@@ -94,18 +91,22 @@ class Navbar extends Component {
     createCampaign(name, description, cause, fundingGoal) {
         this.setState({ loading: true})
         this.state.fundraisingDapp.methods.createCampaign(name, description, cause, fundingGoal).send({ from: this.state.account })
-        .once('receipt',(receipt)=> {
-            this.setState({ loading: false})
+        .on('confirmation', (reciept) => {
+          this.setState({ loading: false })
+          window.location.reload()
         })
     }
 
     donate(id, amount) {
         this.setState({loading: true})
         this.state.fundraisingDapp.methods.donate(id).send({from: this.state.account, value: amount})
-            .once('receipt', (receipt) => {
-                this.setState({loading: false})
+            .on('confirmation', (reciept) => {
+              this.setState({ loading: false })
+              window.location.reload()
             })
     }
+
+    
     render() {
         return (
 
@@ -115,8 +116,8 @@ class Navbar extends Component {
                     <div className="logo"/>
                     <Menu theme={'dark'} mode="horizontal" defaultSelectedKeys={['1']}>
                         <Menu.Item key="1"><Link to={"/"}>Home</Link></Menu.Item>
-                        <Menu.Item key="2"><Link to={"/new-campaign"}>Create Listing</Link></Menu.Item>
-                        <Menu.Item key="3"><Link to={"/campaign-list"}>Listings</Link></Menu.Item>
+                        <Menu.Item key="2"><Link to={"/new-campaign"}>Create</Link></Menu.Item>
+                        <Menu.Item key="3"><Link to={"/campaign-list"} >List</Link></Menu.Item>
                         <Text keyboard style={{marginLeft: '55%'}}>{this.state.account}</Text>
 
                     </Menu>
@@ -129,7 +130,7 @@ class Navbar extends Component {
                     {/* <Route exact path="/campaign-list/" component={Listings} /> */}
                     <Route exact path="/campaign-list/">
                         <DisplayCampaign campaigns={this.state.campaigns} 	
-                                    donate = {this.donate} />
+                                          donate = {this.donate} />
                     </Route>
 
                     {/*<Route path="/lend-money/" component={MoneyDonation} />*/}
