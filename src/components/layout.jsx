@@ -62,24 +62,30 @@ class StaticLayout extends Component {
                         paddingLeft: 0,
                         paddingBottom: 100,
                         paddingTop: 200,
+
                         minHeight: 300
                     }}>
-                        <Carousel className={'stats-card'}>
-                            <div>
-                                <h3 style={contentStyle}>1</h3>
-                            </div>
-                            <div>
-                                <h3 style={contentStyle}>2</h3>
-                            </div>
-                            <div>
-                                <h3 style={contentStyle}>3</h3>
-                            </div>
-                            <div>
-                                <h3 style={contentStyle}>4</h3>
-                            </div>
-                        </Carousel>
-
+                        {/*<Carousel className={'stats-card'}>*/}
+                        {/*    <div>*/}
+                        {/*        <h3 style={contentStyle}>1</h3>*/}
+                        {/*    </div>*/}
+                        {/*    <div>*/}
+                        {/*        <h3 style={contentStyle}>2</h3>*/}
+                        {/*    </div>*/}
+                        {/*    <div>*/}
+                        {/*        <h3 style={contentStyle}>3</h3>*/}
+                        {/*    </div>*/}
+                        {/*    <div>*/}
+                        {/*        <h3 style={contentStyle}>4</h3>*/}
+                        {/*    </div>*/}
+                        {/*</Carousel>*/}
+                        <Card className={"stats-card"} style={{width: 810}}>
+                            <p>Card content</p>
+                            <p>Card content</p>
+                            <p>Card content</p>
+                        </Card>
                         <Bar
+
                             data={this.graphdata}
                             options={{
                                 title: {
@@ -92,7 +98,6 @@ class StaticLayout extends Component {
                                     position: 'bottom'
                                 }
                             }}
-
                         />
                         <Card className={'contact-card'} title="Contact Us" style={{textAlign: "center"}}>
                             <br/>

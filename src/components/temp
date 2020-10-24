@@ -2,16 +2,3 @@
 
 
 
-  <div className="container-fluid mt-5">
-          <div className="row">
-            <main role="main" className="col-lg-12 d-flex text-center">
-              <div className='col'>
-            { this.state.loading
-                ? <div id="loader" className="text-center"><p className="text-center"></p></div>
-                : <DisplayCampaign campaigns={this.state.campaigns}
-                                    donate = {this.donate} />
-              }
-              </div>
-            </main>
-          </div>
-        </div>

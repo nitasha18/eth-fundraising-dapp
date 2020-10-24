@@ -99,16 +99,17 @@ class NewCampaign extends Component {
                 </Form> */}
 
 
-            <form className="container" onSubmit={(event) => {
-                    event.preventDefault()
-                    const name = this.campaignName.value
-                    const description = this.campaignDescription.value
-                    const cause = this.campaignCause.value
-                    const fundingGoal = window.web3.utils.toWei(this.campaignFundingGoal.value.toString(), 'Ether')
+            <form className="container" style={{textAlign: "center"}} onSubmit={(event) => {
+                event.preventDefault()
+                const name = this.campaignName.value
+                const description = this.campaignDescription.value
+                const cause = this.campaignCause.value
+                const fundingGoal = window.web3.utils.toWei(this.campaignFundingGoal.value.toString(), 'Ether')
 
-                    console.log(name, description, cause, fundingGoal)
-                    this.props.createCampaign(name, description, cause, fundingGoal)
-                }}>
+                console.log(name, description, cause, fundingGoal)
+                this.props.createCampaign(name, description, cause, fundingGoal)
+                window.location.reload();
+            }}>
                 <label>
                     <div className="form-group">
                         <input

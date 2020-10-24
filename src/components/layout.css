@@ -13,14 +13,14 @@
     height: 560px;
     width: 350px;
     margin-left: 116%;
-    margin-top: -620px;
+    margin-top: -69%;
     border-radius: 5px;
-    box-shadow: 0 5px 25px rgba(0, 0, 0, .1);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
 }
 
 .stats-card {
 
-    height: 300px;
+
     margin-left: 3%;
-    margin-top: -160px;
+    margin-top: -20%;
 }
