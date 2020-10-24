@@ -1,4 +1,4 @@
-### About
+# About
 FundraisingDapp is a platform where people can raise funds content and others can donate directly to the cause, no middleman involved. Build on truffle, reactjs and web3
 
 ### Tools & Technology 
@@ -9,7 +9,7 @@ FundraisingDapp is a platform where people can raise funds content and others ca
 * Ganache
 * Metamask 
 
-# For development purpose (on local blockchain):
+### For development purpose (on local blockchain):
 1. Ganache cli (preferably on port 7545) {if on 8545 change the port no. in truffle-config.js file}
 2. Import the accounts from ganache to metamask using private key (minimum 2 accounts)
 
