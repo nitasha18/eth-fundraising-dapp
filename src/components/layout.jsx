@@ -116,7 +116,7 @@ class StaticLayout extends Component {
                                 }}
                             />
                         </div>
-                        <div style={{'margin-top':'40px', 'margin-left':'40px'}}>
+                        <div style={{'margin-top':'40px', 'margin-left':'50px'}}>
                             <Card className={'contact-card'} title="Contact Us" style={{textAlign: "center"}}>
                                 <br/>
                                 <div style={{textAlign: "center"}}>

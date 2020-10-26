@@ -63,10 +63,11 @@ contract FundraisingDapp {
         // emit Donated(_proposalAddress, msg.sender, msg.value);
         // if(cam.raisedFunds >= cam.fundingGoal || cam.endTime <= currentTime)
         // {
-            emit ProposalEnded(_id, _campaign.recipient, msg.sender, _campaign.name,_campaign.description,_campaign.cause, _campaign.fundingGoal, msg.value, true);
+        campaigns[_id] = _campaign;
+        emit ProposalEnded(_id, _campaign.recipient, msg.sender, _campaign.name,_campaign.description,_campaign.cause, _campaign.fundingGoal, msg.value, true);
         // }
 
-        campaigns[_id] = _campaign;
+        
         // emit TotalRaisedFunds(charityPoolDonations);
     }
 

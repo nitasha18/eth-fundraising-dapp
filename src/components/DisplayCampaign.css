@@ -1,0 +1,131 @@
+.table{
+    /* border:0; */
+    border-collapse: collapse;
+    font-size: 15px;
+}
+thead {
+    display: none;
+
+}
+tr {
+    display: block;
+    /* border:0px solid transparent; */
+    
+    border-collapse: collapse;
+    margin-bottom: 24px;
+    padding: 16px 8px 8px 16px;
+    background-color: transparentize( white, 0 );
+    /* box-shadow: 0 0 1rem transparentize( black, 0.9 ); */
+}
+td{
+    /* border:0px transparent; */
+    
+    border-collapse: collapse;
+    /* display: inline-block; */
+    /* margin: 4px 4px 4px 4px; */
+    padding:3px;
+    text-align: left;
+    font-size: 15px;
+    background-color: white;
+}
+td:before {
+    float: left;
+    /* border:0px solid transparent; */
+    
+    border-collapse: collapse;
+    margin: -8px 8px -8px -8px;
+    padding: 0.625rem 0.5rem 0.625rem;
+    font-size: 15px;
+    font-weight: bold;
+    background: transparentize( white, 0 );
+    color: black;
+}
+td:nth-child(1):before {
+    content: "Campaign: ";
+}
+td:nth-child(2):before {
+    content: "Campaign Name: ";
+}
+td:nth-child(3):before {
+    content: "Purpose: ";
+}
+td:nth-child(4):before {
+    content: "Description: ";
+}
+td:nth-child(5):before {
+    content: "Funding Goal: ";
+}
+td:nth-child(6):before {
+    content: "Owner Account Address: ";
+}
+td:nth-child(7):before {
+    content: "Recent Doner Address: ";
+}
+td[data-label="id"] {
+    display: block;
+    float: left;
+    width: 50%;
+}
+td[data-label="campaignName"] {
+    display: block;
+    float: left;
+    width: 50%;
+}
+td[data-label="description"] {
+    display: block;
+    float: left;
+    width: 50%;
+}
+td[data-label="cause"] {
+    display: block;
+    float: left;
+    width: 50%;
+}
+td[data-label="amount"] {
+    display: block;
+    float: right;
+    width: 50%;
+/* x */
+}
+td[data-label="recipient"] {
+    display: block;
+    float: left;
+    width: 50%;
+/* 
+    &:before {
+        display: block;
+        margin-right: -8px;
+        margin-bottom: 8px;
+        float: center;
+    } */
+}
+td[data-label="donor"] {
+    display: block;
+    float: left;
+    width: 50%;
+/* 
+    &:before {
+        display: block;
+        margin-right: -8px;
+        margin-bottom: 8px;
+        float: center;
+    } */
+}
+td[data-label="create"] {
+    display: block;
+    float: right;
+    width: 25%;
+
+    /* &:before {
+        display: block;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        margin-bottom: 50%;
+        float: center; */
+    /* } */
+}
+
+td:empty {
+    display: none;
+}
