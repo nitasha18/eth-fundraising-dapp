@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import './App.css';
-import {Descriptions, Badge, Card} from 'antd';
+import {Badge, Descriptions , Card} from 'antd';
 
 function getOperatingSystem(window) {
     let operatingSystem = 'Not known';
@@ -51,11 +50,11 @@ class UserAccount extends Component {
     render() {
         return (
             <center>
-                <br/>
-                <div class="container">
-                    <Card style={{width: 800}}>
-                        <div class="user">
-                            <br/>
+                <br />
+                <div class="containerAcc">
+                    {/* <Card style={{width: 800}}> */}
+                        <div class="user" style={{width: 800}}>
+                            <br />
                             <Descriptions title="Account Details" bordered>
                                 <Descriptions.Item label="System" span={3}>{this.OS(window)}</Descriptions.Item>
                                 <Descriptions.Item label="Browser"
@@ -71,7 +70,7 @@ class UserAccount extends Component {
                             </Descriptions>
                             
                         </div>
-                    </Card>
+                    {/* </Card> */}
                 </div>
             </center>
         );

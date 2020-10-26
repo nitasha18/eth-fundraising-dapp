@@ -11,17 +11,23 @@ class DisplayCampaign extends Component {
             <div id='content'>
                 <h1 style={{textAlign: "center", marginTop: 10}}>List of All Campaigns</h1>
                 {/* <Card> */}
-                    <table className='table'>
-                        <thead>
-                        <tr>
-                            <th scope='col' className="cell">Sr no.</th>
-                            <th scope='col' className="cell">Name</th>
-                            <th scope='col' className="cell">Description</th>
-                            <th scope='col' className="cell">Cause</th>
-                            <th scope='col' className="cell">Funding Goal</th>
-                            <th scope='col' className="cell">Campaign Holder</th>
-                            <th scope='col' className="cell">Recent Donor</th>
-                                <th scope='col' className="cell"></th>
+                    <table className='ttable' >
+                        <thead className="tthead">
+                        <tr className="ttr"
+                            // style={{display: 'block',
+                            // bordercollapse: 'collapse',
+                            // marginbottom: '24px',
+                            // padding: '16px 8px 8px 16px',
+                            // backgroundcolor: 'white' }}
+                            >
+                            <th scope='col' className="ttd">Sr no.</th>
+                            <th scope='col' className="ttd">Name</th>
+                            <th scope='col' className="ttd">Description</th>
+                            <th scope='col' className="ttd">Cause</th>
+                            <th scope='col' className="ttd">Funding Goal</th>
+                            <th scope='col' className="ttd">Campaign Holder</th>
+                            <th scope='col' className="ttd">Recent Donor</th>
+                                <th scope='col' className="ttd"></th>
                             </tr>
                         </thead>
                         <tbody id="campaignList">
@@ -39,22 +45,20 @@ class DisplayCampaign extends Component {
                             { this.props.campaigns.map(( campaign, key) => {
                                 return(
                                     <Card>
-                                    <tr key = {key}>
-                                        <th scope="row" data-label="id" className="cell">
-                                            <span >Campaign  </span>{ campaign.id.toString()}
-                                            </th>
-                                        <td data-label="campaignName" className="cell">{campaign.name}</td>
-                                        <td data-label="cause" className="cell">{campaign.cause}</td>
-                                        <td data-label="description" className="cell">{campaign.description}</td>
-                                        <td data-label="amount" className="cell">{window.web3.utils.fromWei(campaign.fundingGoal.toString(),'Ether')} Ether</td>
-                                        <td data-label="recipient" className="cell">{campaign.recipient}</td>
-                                        <td data-label="donor" className="cell">{campaign.donor}</td>
+                                    <tr key = {key} className="ttr">
+                                        <th scope="row" data-label="id" className="ttd">{campaign.id.toString()}</th>
+                                        <td data-label="campaignName" className="ttd">{campaign.name}</td>
+                                        <td data-label="cause" className="ttd">{campaign.cause}</td>
+                                        <td data-label="description" className="ttd">{campaign.description}</td>
+                                        <td data-label="amount" className="ttd">{window.web3.utils.fromWei(campaign.fundingGoal.toString(),'Ether')} Ether</td>
+                                        <td data-label="recipient" className="ttd">{campaign.recipient}</td>
+                                        <td data-label="donor" className="ttd">{campaign.donor}</td>
                                         
-                                            <td data-label="create" className="cell">
+                                            <td data-label="create" className="ttd">
                                                 {
                                                     !campaign.completed
                                                         ?
-                                                        <center> 
+                                                        // <center> 
                                                             <Button
                                                                 type={"primary"}
                                                                 id={campaign.id}
@@ -67,7 +71,7 @@ class DisplayCampaign extends Component {
                                                             >
                                                                 Donate
                                                             </Button>
-                                                        </center>
+                                                        // </center>
                                                     : null
                                                 }
                                             </td>
