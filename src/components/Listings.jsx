@@ -3,14 +3,10 @@ import './App.css';
 import "antd/dist/antd.css";
 // import Config from './Config';
 import Web3 from 'web3';
-import Navbar from './Navbar';
 import FundraisingDapp from '../abis/FundraisingDapp.json';
-import NewCampaign from './NewCampaign';
 import DisplayCampaign from './DisplayCampaign';
 import "./fillform.css"
-import {Spin} from 'antd';
 import {LoadingOutlined, UserOutlined} from '@ant-design/icons';
-import {Input} from 'antd';
 
 
 const antIcon = <LoadingOutlined style={{fontSize: 24}} spin/>;

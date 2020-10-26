@@ -6,12 +6,12 @@ import {Card} from "antd";
 import {Input} from 'antd';
 import {UserOutlined} from '@ant-design/icons';
 import {Layout, Menu, Breadcrumb, Button} from 'antd';
-
+import emailjs from "emailjs-com";
 import {Carousel} from "antd";
-
+import {Alert} from 'antd';
 const {Header, Content, Footer, Sider} = Layout;
 const contentStyle = {
-    height: '200px',
+    height: '160px',
     color: '#fff',
     lineHeight: '160px',
     textAlign: 'center',
@@ -24,6 +24,7 @@ class StaticLayout extends Component {
         collapsed: false,
 
     };
+
     graphdata = {
         labels: ['January', 'February', 'March',
             'April', 'May'],
@@ -79,11 +80,25 @@ class StaticLayout extends Component {
                         {/*        <h3 style={contentStyle}>4</h3>*/}
                         {/*    </div>*/}
                         {/*</Carousel>*/}
-                        <Card className={"stats-card"} style={{width: 810}}>
-                            <p>Card content</p>
-                            <p>Card content</p>
-                            <p>Card content</p>
-                        </Card>
+                        <Carousel autoplay className={"stats-card"}>
+                            <div>
+                                <h5 style={contentStyle}>Sahay, a modern fundraiser platform for the sake of all the
+                                    people in need out there!</h5>
+                            </div>
+                            <div>
+                                <h3 style={contentStyle}>Have a great innovative idea?</h3>
+                            </div>
+                            <div>
+                                <h3 style={contentStyle}>Want to lend a hand in saving someone's life?</h3>
+                            </div>
+                            <div>
+                                <h3 style={contentStyle}>Want help in completing your studies?</h3>
+                            </div>
+                            <div>
+                                <h3 style={contentStyle}>Just sign up with us and see your dreams coming true in front
+                                    of you with us!</h3>
+                            </div>
+                        </Carousel>
                         <Bar
 
                             data={this.graphdata}
@@ -101,16 +116,29 @@ class StaticLayout extends Component {
                         />
                         <Card className={'contact-card'} title="Contact Us" style={{textAlign: "center"}}>
                             <br/>
-                            <p><h3>We know you are in urgent need of funds.</h3></p>
-                            <p>Raising funds was never this easy.</p>
-                            <br/><br/>
-                            <Input size="large" placeholder="Email" prefix={<UserOutlined/>}/>
-                            <br/><br/><br/>
-                            <Input size="large" placeholder="Phone Number" prefix={<UserOutlined/>}/>
-                            <br/><br/><br/>
-                            <Button>Contact</Button>
-                            <br/><br/><br/><br/><br/>
+                            <div style={{textAlign: "center"}}>
+                                <p><h3>We know you are in urgent need of funds.</h3></p>
+                                <p>Raising funds was never this easy.</p>
+                            </div>
+                            <br/>
+                            <Alert
+                                message="E-mail"
+                                description="fundraiserdapp@gmail.com
+                              sahaydapp@gmail.com"
+                                type="info"
+                                showIcon
+                                style={{textAlign: "initial"}}
+                            />
+                            <br/>
+                            <Alert
+                                message="Contact"
+                                description="+91 9904321981"
+                                type="info"
+                                showIcon
+                                style={{textAlign: "initial"}}
+                            />
 
+                            <br/><br/>
                         </Card>
 
                     </div>

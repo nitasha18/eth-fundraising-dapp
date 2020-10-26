@@ -17,7 +17,7 @@ class NewCampaign extends Component {
 
     render() {
         return (
-            <Card style={{marginTop: "10%"}} id="content" className="card">
+            <Card style={{marginTop: "10%", marginLeft: "37%"}} id="content" className="card">
                 <p></p>
 
                 <p></p>

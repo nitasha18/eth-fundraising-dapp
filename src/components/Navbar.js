@@ -7,12 +7,9 @@ import DisplayCampaign from "./DisplayCampaign";
 import NewCampaign from "./NewCampaign";
 import UserAccount from "./UserAccount";
 import StaticLayout from "./layout";
-import Listings from "./Listings";
-
 import Web3 from 'web3';
 import FundraisingDapp from '../abis/FundraisingDapp.json';
-import Fillform from "./fillform";
-import NavBar from "./Navbar"
+
 const {Header} = Layout;
 
 const {Text} = Typography;
@@ -56,7 +53,7 @@ class Navbar extends Component {
           // const newTempCampaign = await fundraisingDapp.methods.createCampaign('Student Care','For students from 1st to 12th Std','Education',web3.utils.toWei('10','Ether')).send({from: this.state.account})
           // console.log(newTempCampaign)
           const campaignCount = await fundraisingDapp.methods.campaignCount().call()
-          console.log(campaignCount.toString())
+          // console.log(campaignCount.toString())
           this.setState({ campaignCount})
           for(var i=1; i<=campaignCount;i++){
             const campaign = await fundraisingDapp.methods.campaigns(i).call()
@@ -132,11 +129,11 @@ class Navbar extends Component {
                         {/* <Text keyboard style={{marginLeft: '55%'}}>Account Address : {this.state.account}</Text> */}
 
                     </Menu>
-                    
+
                     <Route exact path="/" component={StaticLayout}/>
                     {/* <Route exact path="/new-campaign/" component={NewCampaign }/> */}
                     <Route exact path="/new-campaign/">
-                        <NewCampaign createCampaign={this.createCampaign} />
+                        <NewCampaign createCampaign={this.createCampaign}/>
                     </Route>
                     {/* <Route exact path="/campaign-list/" component={Listings} /> */}
                     <Route exact path="/campaigns/">
