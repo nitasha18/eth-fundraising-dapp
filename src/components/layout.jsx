@@ -80,66 +80,70 @@ class StaticLayout extends Component {
                         {/*        <h3 style={contentStyle}>4</h3>*/}
                         {/*    </div>*/}
                         {/*</Carousel>*/}
-                        <Carousel autoplay className={"stats-card"}>
-                            <div>
-                                <h5 style={contentStyle}>Sahay, a modern fundraiser platform for the sake of all the
-                                    people in need out there!</h5>
-                            </div>
-                            <div>
-                                <h3 style={contentStyle}>Have a great innovative idea?</h3>
-                            </div>
-                            <div>
-                                <h3 style={contentStyle}>Want to lend a hand in saving someone's life?</h3>
-                            </div>
-                            <div>
-                                <h3 style={contentStyle}>Want help in completing your studies?</h3>
-                            </div>
-                            <div>
-                                <h3 style={contentStyle}>Just sign up with us and see your dreams coming true in front
-                                    of you with us!</h3>
-                            </div>
-                        </Carousel>
-                        <Bar
+                        <div style={{'margin-top':'40px', 'margin-right':'35px'}}>
+                            <Carousel autoplay className={"stats-card"}>
+                                <div>
+                                    <h5 style={contentStyle}>Sahay, a modern fundraiser platform for the sake of all the
+                                        people in need out there!</h5>
+                                </div>
+                                <div>
+                                    <h3 style={contentStyle}>Have a great innovative idea?</h3>
+                                </div>
+                                <div>
+                                    <h3 style={contentStyle}>Want to lend a hand in saving someone's life?</h3>
+                                </div>
+                                <div>
+                                    <h3 style={contentStyle}>Want help in completing your studies?</h3>
+                                </div>
+                                <div>
+                                    <h3 style={contentStyle}>Just sign up with us and see your dreams coming true in front
+                                        of you with us!</h3>
+                                </div>
+                            </Carousel>
+                            <Bar
 
-                            data={this.graphdata}
-                            options={{
-                                title: {
-                                    display: true,
-                                    text: '',
-                                    fontSize: 20
-                                },
-                                legend: {
-                                    display: true,
-                                    position: 'bottom'
-                                }
-                            }}
-                        />
-                        <Card className={'contact-card'} title="Contact Us" style={{textAlign: "center"}}>
-                            <br/>
-                            <div style={{textAlign: "center"}}>
-                                <p><h3>We know you are in urgent need of funds.</h3></p>
-                                <p>Raising funds was never this easy.</p>
-                            </div>
-                            <br/>
-                            <Alert
-                                message="E-mail"
-                                description="fundraiserdapp@gmail.com
-                              sahaydapp@gmail.com"
-                                type="info"
-                                showIcon
-                                style={{textAlign: "initial"}}
+                                data={this.graphdata}
+                                options={{
+                                    title: {
+                                        display: true,
+                                        text: '',
+                                        fontSize: 20
+                                    },
+                                    legend: {
+                                        display: true,
+                                        position: 'bottom'
+                                    }
+                                }}
                             />
-                            <br/>
-                            <Alert
-                                message="Contact"
-                                description="+91 9904321981"
-                                type="info"
-                                showIcon
-                                style={{textAlign: "initial"}}
-                            />
+                        </div>
+                        <div style={{'margin-top':'40px', 'margin-left':'40px'}}>
+                            <Card className={'contact-card'} title="Contact Us" style={{textAlign: "center"}}>
+                                <br/>
+                                <div style={{textAlign: "center"}}>
+                                    <p><h3>We know you are in urgent need of funds.</h3></p>
+                                    <p>Raising funds was never this easy.</p>
+                                </div>
+                                <br/>
+                                <Alert
+                                    message="E-mail"
+                                    description="fundraiserdapp@gmail.com
+                                sahaydapp@gmail.com"
+                                    type="info"
+                                    showIcon
+                                    style={{textAlign: "initial"}}
+                                />
+                                <br/>
+                                <Alert
+                                    message="Contact"
+                                    description="+91 9904321981"
+                                    type="info"
+                                    showIcon
+                                    style={{textAlign: "initial"}}
+                                />
 
-                            <br/><br/>
-                        </Card>
+                                <br/><br/>
+                            </Card>
+                        </div>
 
                     </div>
 

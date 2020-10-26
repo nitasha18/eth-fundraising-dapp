@@ -1,156 +1,95 @@
 import React, {Component} from 'react';
 import './App.css';
-import {Form, Input, Button, Card, InputNumber} from 'antd';
+import {Form, Input, Button, Card, InputNumber,  Typography, Divider } from 'antd';
 import {UserOutlined} from '@ant-design/icons';
-const {TextArea} = Input;
-const layout = {
-    labelCol: {
-        span: 8,
-    },
-    wrapperCol: {
-        span: 16,
-    },
 
-};
+const { Title, Paragraph, Text, Link } = Typography;
 
-class NewCampaign extends Component {
+class NewCampaign extends Component {s
 
     render() {
         return (
-            <Card style={{marginTop: "10%", marginLeft: "37%"}} id="content" className="card">
-                <p></p>
+            <div className='createCampaign'>
+                <div className="intro" >
+                    <center>
+                        <p></p>
+                        <h2>Create Campaign</h2>
+                        <hr />
+                        <p>In the process of internal desktop applications development, many different d</p>
+                    </center>
+                </div>
+                <div className="body">
+                    <center>
+                        <p></p>
+                    {/* <Card style={{marginTop: "10%", marginLeft: "37%"}} id="content" className="card"> */}
+                        <Card style={{ width: 600}}>
+                            <p></p>
 
-                <p></p>
-                {/* <Form className="container"
+                            <p></p>
+                            
+                        <form className="container" style={{textAlign: "center"}} onSubmit={(event) => {
+                            event.preventDefault()
+                            const name = this.campaignName.value
+                            const description = this.campaignDescription.value
+                            const cause = this.campaignCause.value
+                            const fundingGoal = window.web3.utils.toWei(this.campaignFundingGoal.value.toString(), 'Ether')
 
-                      {...layout}
-                      style={{paddingRight: 105}}
-                      onSubmit={(event) => {
-                          event.preventDefault()
-                          const name = this.campaignName.value
-                          const description = this.campaignDescription.value
-                          const cause = this.campaignCause.value
-                          const fundingGoal = window.web3.utils.toWei(this.campaignFundingGoal.value.toString(), 'Ether')
+                            console.log(name, description, cause, fundingGoal)
+                            this.props.createCampaign(name, description, cause, fundingGoal)
+                            // window.location.reload();
+                        }}>
+                            <div>
+                                <div className="form-group">
+                                    <label for="campaignName">Campaign Name<span style={{color: 'red'}}>*</span></label>
+                                    <input
+                                    id="campaignName"
+                                    type="text"
+                                    ref={(input) => { this.campaignName = input }}
+                                    className="form-control"
+                                    placeholder="Enter the Campaign Name"
+                                    required />
+                                </div>
+                                <div className="form-group">
+                                    <label for="campaignCause">Purpose<span style={{color: 'red'}}>*</span></label>
+                                    <input
+                                    id="campaignCause"
+                                    type="text"
+                                    ref={(input) => { this.campaignCause = input }}
+                                    className="form-control"
+                                    placeholder="Enter the purpose of Campaign"
+                                    required />
+                                </div>
+                                <div className="form-group">
+                                    <label for="campaignDescription">Description<span style={{color: 'red'}}>*</span></label>
+                                    <input
+                                    style={{height: '80px'}}
+                                    id="campaignDescription"
+                                    type="text"
+                                    ref={(input) => { this.campaignDescription = input }}
+                                    className="form-control"
+                                    placeholder="Provide few details"
+                                    rows="5"
+                                    required />
+                                </div>
+                                <div className="form-group">
+                                    <label for="campaignFundingGoal">Funding Goal<span style={{color: 'red'}}>*</span></label>
+                                    <input
+                                    id="campaignFundingGoal"
+                                    type="text"
+                                    ref={(input) => { this.campaignFundingGoal = input }}
+                                    className="form-control"
+                                    placeholder="Amount (In Ethers)"
+                                    required />
+                                </div>
 
-                          console.log(name, description, cause, fundingGoal)
-                          this.props.createCampaign(name, description, cause, fundingGoal)
-                      }}>
-                    <Form.Item
-                        id={"campaignName"}
-                        name={['Campaign Name']}
-                        label="Name"
-                        rules={[
-                            {
-                                required: true,
-                            },
-                        ]}
-                    >
-                        <Input ref={(input) => {
-                            this.campaignName = input
-                        }}/>
-                    </Form.Item>
-                    <Form.Item
-                        id={"campaignDescription"}
-                        name={['Campaign Description']}
-                        label="Description"
-                        rules={[
-                            {
-                                required: true,
-                            },
-                        ]}
-                    >
-                        <Input.TextArea ref={(input) => {
-                            this.campaignDescription = input
-                        }}/>
-                    </Form.Item>
-
-                    <Form.Item name={['Campaign Cause']} label="Cause"
-                               id={"campaignCause"}
-                               rules={[
-                                   {
-                                       required: true,
-                                   },
-                               ]}
-                    >
-                        <Input.TextArea ref={(input) => {
-                            this.campaignCause = input
-                        }}/>
-                    </Form.Item>
-                    <Form.Item name={['Campaign Goal(Amount)']} label="Goal(Amount)"
-                               id={"campaignFundingGoal"}
-                               rules={[
-                                   {
-                                       required: true
-                                   },
-                               ]}
-                    >
-                        <InputNumber min ={0} style={{width: 124}} ref={(input) => {
-                            this.campaignFundingGoal = input
-                        }}/>
-                    </Form.Item>
-                    <Form.Item wrapperCol={{...layout.wrapperCol, offset: 8}}>
-                        <Button type={"submit"} value={"Submit"}>
-                            Create
-                        </Button>
-                    </Form.Item>
-
-
-                </Form> */}
-
-
-            <form className="container" style={{textAlign: "center"}} onSubmit={(event) => {
-                event.preventDefault()
-                const name = this.campaignName.value
-                const description = this.campaignDescription.value
-                const cause = this.campaignCause.value
-                const fundingGoal = window.web3.utils.toWei(this.campaignFundingGoal.value.toString(), 'Ether')
-
-                console.log(name, description, cause, fundingGoal)
-                this.props.createCampaign(name, description, cause, fundingGoal)
-                // window.location.reload();
-            }}>
-                <label>
-                    <div className="form-group">
-                        <input
-                        id="campaignName"
-                        type="text"
-                        ref={(input) => { this.campaignName = input }}
-                        className="form-control"
-                        placeholder="Name"
-                        required />
-                    </div>
-                    <div className="form-group">
-                        <input
-                        id="campaignDescription"
-                        type="text"
-                        ref={(input) => { this.campaignDescription = input }}
-                        className="form-control"
-                        placeholder="Description"
-                        required />
-                    </div>
-                    <div className="form-group">
-                        <input
-                        id="campaignCause"
-                        type="text"
-                        ref={(input) => { this.campaignCause = input }}
-                        className="form-control"
-                        placeholder="Cause"
-                        required />
-                    </div>
-                    <div className="form-group">
-                        <input
-                        id="campaignFundingGoal"
-                        type="text"
-                        ref={(input) => { this.campaignFundingGoal = input }}
-                        className="form-control"
-                        placeholder="FundingGoal"
-                        required />
-                    </div>
-
-                <button type="submit" className="btn btn-primary">Create</button>
-                </label>
-                </form>
-            </Card>
+                            <button type="submit" className="btn btn-primary">Create</button>
+                            </div>
+                            </form>
+                        </Card>
+                    
+                    </center>
+                </div>
+            </div>
         );
     }
 }
