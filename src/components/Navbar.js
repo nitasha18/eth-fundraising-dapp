@@ -9,7 +9,7 @@ import UserAccount from "./UserAccount";
 import StaticLayout from "./layout";
 import Web3 from 'web3';
 import FundraisingDapp from '../abis/FundraisingDapp.json';
-
+import OS from "./os_browser"
 const {Header} = Layout;
 
 const {Text} = Typography;
@@ -127,16 +127,15 @@ class Navbar extends Component {
     
     render() {
         return (
-
-
             <Router>
                 <Header className="main-navigation">
                     <div className="logo"/>
-                    <Menu theme={'dark'} mode="horizontal" defaultSelectedKeys={['1']}>
-                        <Menu.Item key="1"><Link to={"/"}>Dashboard</Link></Menu.Item>
-                        <Menu.Item key="2"><Link to={"/new-campaign"}>Register Campigns</Link></Menu.Item>
-                        <Menu.Item key="3"><Link to={"/campaigns"} >View Campaings</Link></Menu.Item>
-                        <Menu.Item key="4" style={{float: 'right'}}><Link to={"/user-account"} >Account Address : {this.state.account}</Link></Menu.Item>
+                    <Menu theme={'dark'} mode="horizontal" defaultSelectedKeys={[window.location.pathname]}>
+                        <Menu.Item key="/"><Link to={"/"}>Dashboard</Link></Menu.Item>
+                        <Menu.Item key="/new-campaign"><Link to={"/new-campaign"}>Register Campigns</Link></Menu.Item>
+                        <Menu.Item key="/campaigns"><Link to={"/campaigns"}>View Campaings</Link></Menu.Item>
+                        <Menu.Item key="/user-account" style={{float: 'right'}}><Link to={"/user-account"}>Account
+                            Address : {this.state.account}</Link></Menu.Item>
                         {/* <Text keyboard style={{marginLeft: '55%'}}>Account Address : {this.state.account}</Text> */}
 
                     </Menu>
