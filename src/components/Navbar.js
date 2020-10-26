@@ -5,6 +5,7 @@ import {Typography, Space} from 'antd';
 import {BrowserRouter as Router, Route, Link} from "react-router-dom";
 import DisplayCampaign from "./DisplayCampaign";
 import NewCampaign from "./NewCampaign";
+import UserAccount from "./UserAccount";
 import StaticLayout from "./layout";
 import Listings from "./Listings";
 
@@ -33,7 +34,7 @@ class Navbar extends Component {
         else if (window.web3) {
             window.web3 = new Web3(window.web3.currentProvider)
         } else {
-            window.alert('Non-ethereum browser detected. Consider trying Metamask!')
+            window.alert("Please install an Ethereum-compatible browser or extension like MetaMask to use this dApp!")
         }
       }
 
@@ -72,6 +73,15 @@ class Navbar extends Component {
         } else {
           window.alert('FundraisingDapp contract is not deployed on the detected network')
         }
+    }
+
+    async loadAccounts() {
+      if(window.ethereum){
+        window.ethereum.on('accountsChanged',function(accounts){
+          console.log(accounts[0])
+          this.setState({ account: accounts[0]})
+        })
+      }
     }
 
 
@@ -115,10 +125,11 @@ class Navbar extends Component {
                 <Header className="main-navigation">
                     <div className="logo"/>
                     <Menu theme={'dark'} mode="horizontal" defaultSelectedKeys={['1']}>
-                        <Menu.Item key="1"><Link to={"/"}>Home</Link></Menu.Item>
-                        <Menu.Item key="2"><Link to={"/new-campaign"}>Create</Link></Menu.Item>
-                        <Menu.Item key="3"><Link to={"/campaign-list"} >List</Link></Menu.Item>
-                        <Text keyboard style={{marginLeft: '55%'}}>{this.state.account}</Text>
+                        <Menu.Item key="1"><Link to={"/"}>Dashboard</Link></Menu.Item>
+                        <Menu.Item key="2"><Link to={"/new-campaign"}>Register Campigns</Link></Menu.Item>
+                        <Menu.Item key="3"><Link to={"/campaigns"} >View Campaings</Link></Menu.Item>
+                        <Menu.Item key="4" style={{float: 'right'}}><Link to={"/user-account"} >Account Address : {this.state.account}</Link></Menu.Item>
+                        {/* <Text keyboard style={{marginLeft: '55%'}}>Account Address : {this.state.account}</Text> */}
 
                     </Menu>
                     
@@ -128,9 +139,13 @@ class Navbar extends Component {
                         <NewCampaign createCampaign={this.createCampaign} />
                     </Route>
                     {/* <Route exact path="/campaign-list/" component={Listings} /> */}
-                    <Route exact path="/campaign-list/">
+                    <Route exact path="/campaigns/">
                         <DisplayCampaign campaigns={this.state.campaigns} 	
                                           donate = {this.donate} />
+                    </Route>
+                    <Route exact path="/user-account" >
+                        {/* render={this.loadAccounts}  */}
+                        <UserAccount account= {this.state.account} />
                     </Route>
 
                     {/*<Route path="/lend-money/" component={MoneyDonation} />*/}
