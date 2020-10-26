@@ -41,6 +41,13 @@ class Navbar extends Component {
         const accounts = await web3.eth.getAccounts()
         // console.log(accounts)
         this.setState({ account: accounts[0]})
+
+        const accountBalance = await web3.eth.getBalance(accounts[0])
+        this.setState({balance : web3.utils.fromWei(accountBalance,'Ether')})
+        // console.log(balances)
+        // this.web3.eth.getBalance(this.account, (err, balance) => {
+        //   this.setState ({ balance: this.web3.fromWei(balance, "ether") + " ETH"})
+        // });
         const networkId = await web3.eth.net.getId()
         const networkData = FundraisingDapp.networks[networkId]
         // console.log(FundraisingDapp.abi, networkData.address)
@@ -49,6 +56,8 @@ class Navbar extends Component {
           const fundraisingDapp = new web3.eth.Contract(FundraisingDapp.abi, networkData.address)
           console.log(fundraisingDapp)
           this.setState({ fundraisingDapp  })
+          // const balance = web3.eth.getBalance(this.account)
+          // console.log(balance)
 
           // const newTempCampaign = await fundraisingDapp.methods.createCampaign('Student Care','For students from 1st to 12th Std','Education',web3.utils.toWei('10','Ether')).send({from: this.state.account})
           // console.log(newTempCampaign)
@@ -77,6 +86,7 @@ class Navbar extends Component {
         window.ethereum.on('accountsChanged',function(accounts){
           console.log(accounts[0])
           this.setState({ account: accounts[0]})
+          console.log(this.balance)
         })
       }
     }
@@ -86,6 +96,7 @@ class Navbar extends Component {
         super(props)
         this.state = {
           account: '',
+          balance: 0,
           campaignCount: 0,
           campaigns: [],
           loading: true
@@ -142,7 +153,7 @@ class Navbar extends Component {
                     </Route>
                     <Route exact path="/user-account" >
                         {/* render={this.loadAccounts}  */}
-                        <UserAccount account= {this.state.account} />
+                        <UserAccount account= {this.state.account} balance= {this.state.balance}/>
                     </Route>
 
                     {/*<Route path="/lend-money/" component={MoneyDonation} />*/}
