@@ -15,7 +15,7 @@ class NewCampaign extends Component {s
                         <p></p>
                         <h2>Create Campaign</h2>
                         <hr />
-                        <p>In the process of internal desktop applications development, many different d</p>
+                        <p><strong>Start your Campaign and reach out to the people all over the world!</strong></p>
                     </center>
                 </div>
                 <div className="body">
