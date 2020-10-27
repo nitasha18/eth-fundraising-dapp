@@ -109,18 +109,23 @@ class Navbar extends Component {
     createCampaign(name, description, cause, fundingGoal) {
         this.setState({ loading: true})
         this.state.fundraisingDapp.methods.createCampaign(name, description, cause, fundingGoal).send({ from: this.state.account })
-        .on('confirmation', (reciept) => {
-          this.setState({ loading: false })
+        .on('confirmation', (receipt) => {
           window.location.reload()
+        })
+        .once('receipt',(reciept)=>{
+          this.setState({ loading: false })
         })
     }
 
     donate(id, amount) {
         this.setState({loading: true})
         this.state.fundraisingDapp.methods.donate(id).send({from: this.state.account, value: amount})
-            .on('confirmation', (reciept) => {
-              this.setState({ loading: false })
+            .on('confirmation', (receipt) => {
+              // this.setState({ loading: false })
               window.location.reload()
+            })
+            .once('receipt',(receipt)=>{
+              this.setState({ loading: false })
             })
     }
 

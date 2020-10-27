@@ -35,13 +35,13 @@ contract FundraisingDapp {
         require(bytes(_description).length > 0);
         require(_fundingGoal>0);
 
-        campaignCount++;
+        ++campaignCount;
         
-        campaigns[campaignCount] = Campaign(campaignCount, msg.sender, address(0), _name,_description,_cause, _fundingGoal, 0, false);
+        campaigns[campaignCount] = Campaign(campaignCount, msg.sender, address(0), _name, _description, _cause, _fundingGoal, 0, false);
         
         // cam.proposalHash = sha256(abi.encodePacked(msg.sender, _description, _cause, _endTime));
         
-        emit ProposalAdded(campaignCount, msg.sender, _name,_description,_cause, _fundingGoal, 0, false);
+        emit ProposalAdded(campaignCount, msg.sender, _name, _description, _cause, _fundingGoal, 0, false);
     }
 
     function donate(uint256 _id) public payable

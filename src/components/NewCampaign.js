@@ -27,12 +27,13 @@ class NewCampaign extends Component {s
 
                             <p></p>
                             
-                        <form className="container" style={{textAlign: "center"}} onSubmit={(event) => {
+                        <form className="container" style={{textAlign: "center"}} 
+                            onSubmit={(event) => {
                             event.preventDefault()
                             const name = this.campaignName.value
                             const description = this.campaignDescription.value
                             const cause = this.campaignCause.value
-                            const fundingGoal = window.web3.utils.toWei(this.campaignFundingGoal.value.toString(), 'Ether')
+                            const fundingGoal = window.web3.utils.toWei(this.fundingGoal.value.toString(), 'Ether')
 
                             console.log(name, description, cause, fundingGoal)
                             this.props.createCampaign(name, description, cause, fundingGoal)
@@ -72,11 +73,11 @@ class NewCampaign extends Component {s
                                     required />
                                 </div>
                                 <div className="form-group">
-                                    <label for="campaignFundingGoal">Funding Goal<span style={{color: 'red'}}>*</span></label>
+                                    <label for="fundingGoal">Funding Goal<span style={{color: 'red'}}>*</span></label>
                                     <input
-                                    id="campaignFundingGoal"
+                                    id="fundingGoal"
                                     type="text"
-                                    ref={(input) => { this.campaignFundingGoal = input }}
+                                    ref={(input) => { this.fundingGoal = input }}
                                     className="form-control"
                                     placeholder="Amount (In Ethers)"
                                     required />

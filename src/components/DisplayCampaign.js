@@ -61,11 +61,13 @@ class DisplayCampaign extends Component {
                                                         // <center> 
                                                             <Button
                                                                 type={"primary"}
-                                                                id={campaign.id}
-                                                                amount={campaign.fundingGoal}
+                                                                // id={campaign.id}
+                                                                // amount={campaign.fundingGoal}
                                                                 className='donateButton'
                                                                 onClick={(event) => {
-                                                                    this.props.donate(event.target.id, event.target.amount)
+                                                                    event.preventDefault()
+                                                                    console.log(campaign.id, campaign.fundingGoal)
+                                                                    this.props.donate(campaign.id, campaign.fundingGoal)
 
                                                                 }}
                                                             >
