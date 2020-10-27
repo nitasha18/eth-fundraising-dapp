@@ -9,7 +9,7 @@ import UserAccount from "./UserAccount";
 import StaticLayout from "./layout";
 import Web3 from 'web3';
 import FundraisingDapp from '../abis/FundraisingDapp.json';
-import OS from "./os_browser"
+
 const {Header} = Layout;
 
 const {Text} = Typography;

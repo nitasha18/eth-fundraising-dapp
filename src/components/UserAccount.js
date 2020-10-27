@@ -26,7 +26,7 @@ function getBrowser(window) {
     } else if (window.navigator.userAgent.indexOf('Firefox') !== -1) {
         currentBrowser = 'Mozilla Firefox';
     } else if (window.navigator.userAgent.indexOf('MSIE') !== -1) {
-        currentBrowser = 'Internet Exployer';
+        currentBrowser = 'Internet Explorer';
     } else if (window.navigator.userAgent.indexOf('Edge') !== -1) {
         currentBrowser = 'Edge';
     } else if (window.navigator.userAgent.indexOf('Safari') !== -1) {

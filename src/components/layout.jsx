@@ -26,8 +26,8 @@ class StaticLayout extends Component {
     };
 
     graphdata = {
-        labels: ['January', 'February', 'March',
-            'April', 'May'],
+        labels: ['Cash Donations', 'Direct Debit', 'Raffle Tickets',
+            'Goods Donation', 'Bitcoin/Ethereum'],
         datasets: [{
             label: 'Applications',
             backgroundColor: [
@@ -46,7 +46,7 @@ class StaticLayout extends Component {
             ],
 
             borderWidth: 2,
-            data: [65, 59, 80, 81, 56]
+            data: [55, 31, 24, 22, 3]
         }]
     };
 
@@ -101,9 +101,15 @@ class StaticLayout extends Component {
                                 </div>
                             </Carousel>
                             <Bar
-
                                 data={this.graphdata}
                                 options={{
+                                    scales: {
+                                        yAxes: [{
+                                            ticks: {
+                                                beginAtZero: true
+                                            }
+                                        }]
+                                    },
                                     title: {
                                         display: true,
                                         text: '',
