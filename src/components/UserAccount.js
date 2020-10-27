@@ -54,8 +54,10 @@ class UserAccount extends Component {
                 <div class="containerAcc">
                     {/* <Card style={{width: 800}}> */}
                         <div class="user" style={{width: 800}}>
-                            <br />
-                            <Descriptions title="Account Details" bordered>
+                            
+                            <h1>Account Details</h1>
+                            {/* <br /> */}
+                            <Descriptions bordered>
                                 <Descriptions.Item label="System" span={3}>{this.OS(window)}</Descriptions.Item>
                                 <Descriptions.Item label="Browser"
                                                    span={3}>{this.currentBrowser(window)}</Descriptions.Item>

@@ -29,7 +29,7 @@ class StaticLayout extends Component {
         labels: ['Cash Donations', 'Direct Debit', 'Raffle Tickets',
             'Goods Donation', 'Bitcoin/Ethereum'],
         datasets: [{
-            label: 'Applications',
+            label: 'Mode used for Donations',
             backgroundColor: [
                 'rgba(255,0,255,0.2)',
                 'rgba(0,0,255,0.2)',
@@ -83,7 +83,7 @@ class StaticLayout extends Component {
                         <div style={{'margin-top':'40px', 'margin-right':'35px'}}>
                             <Carousel autoplay className={"stats-card"}>
                                 <div>
-                                    <h5 style={contentStyle}>Sahay, a modern fundraiser platform for the sake of all the
+                                    <h5 style={contentStyle}>A modern fundraiser platform for the sake of all the
                                         people in need out there!</h5>
                                 </div>
                                 <div>
