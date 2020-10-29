@@ -6823,6 +6823,12 @@
     "version": "0.6.0+commit.26b70077.Emscripten.clang"
   },
   "networks": {
+    "3": {
+      "events": {},
+      "links": {},
+      "address": "0xb3df2612f0669216f142754921a4388dd5641440",
+      "transactionHash": "0x374c15b7262e9e7ecb9e943e9f48a8df427cda5aa936f2c21e24e4a3cc48c3bb"
+    },
     "5777": {
       "events": {
         "0x72dad8fbc7923ed88b9e44841954510f3358afb4196a158c79666b709c663932": {
