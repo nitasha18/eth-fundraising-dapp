@@ -75,7 +75,7 @@
 }
 .ttd[data-label="cause"] {
     display: block;
-    float: right;
+    float: left;
     width: 50%;
 }
 .ttd[data-label="description"] {
@@ -85,7 +85,7 @@
 }
 .ttd[data-label="amount"] {
     display: block;
-    float: right;
+    float: left;
     width: 50%;
 /* x */
 }

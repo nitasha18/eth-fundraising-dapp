@@ -10,6 +10,8 @@
 
 # production
 /build
+/src/abis/FundraisingDapp.js
+/src/abis/Migration.js
 
 # misc
 .DS_Store
