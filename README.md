@@ -5,9 +5,13 @@ FundraisingDapp is a platform where people can raise funds content and others ca
 * Solidity
 * Truffle framework
 * Node js
+* Chartjs
 * React
 * Ganache
 * Metamask 
+* HTML
+* CSS
+* Ropsten TestNet
 
 ### For development purpose (on local blockchain):
 1. Ganache cli (preferably on port 7545) {if on 8545 change the port no. in truffle-config.js file}
